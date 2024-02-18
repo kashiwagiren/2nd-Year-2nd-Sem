@@ -24,13 +24,19 @@ int main() {
     int choice, choice1, choice2, data, key, position;
     do {
         printf("\e[1;1H\e[2J");
-        printf("\nOperations Menu:\n");
-        printf("1. Insertion\n");
-        printf("2. Deletion\n");
-        printf("3. Traverse\n");
-        printf("4. Search\n");
-        printf("5. Exit\n");
-        printf("Enter your choice: ");
+        printf("\n");
+        printf(" _________________________________ \n");
+        printf("/                                 \\\n");
+        printf("|                                 |\n");
+        printf("|         Operations Menu:        |\n");
+        printf("|     Press '1' for Insertion     |\n");
+        printf("|     Press '2' for Deletion      |\n");
+        printf("|     Press '3' to Traverse       |\n");
+        printf("|     Press '4' to Search         |\n");
+        printf("|     Press '5' to Exit           |\n");
+        printf("\\_________________________________/\n");
+        printf("\n");
+        printf("   Enter your choice of number: ");
         scanf("%d", &choice);
         printf("\e[1;1H\e[2J");
         switch (choice) {
