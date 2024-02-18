@@ -27,8 +27,7 @@ int main() {
         printf("\n");
         printf(" _________________________________ \n");
         printf("/                                 \\\n");
-        printf("|                                 |\n");
-        printf("|         Operations Menu:        |\n");
+        printf("|        Operations Menu:         |\n");
         printf("|     Press '1' for Insertion     |\n");
         printf("|     Press '2' for Deletion      |\n");
         printf("|     Press '3' to Traverse       |\n");
@@ -85,7 +84,7 @@ int main() {
             case 2:
                 if (head == NULL) {
                     printf("\nList is empty. Nothing to delete.\n");
-                    usleep(1000000);
+                    usleep(2000000);
                     printf("\e[1;1H\e[2J");
                     break;
                 }
@@ -170,7 +169,7 @@ int main() {
             case 4:
                 if (head == NULL) {
                     printf("\nList is empty. Nothing to search.\n");
-                    usleep(1000000);
+                    usleep(2000000);
                     printf("\e[1;1H\e[2J");
                     break;
                 }
@@ -210,7 +209,7 @@ struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
         printf("Memory allocation failed.\n");
-        usleep(1000000);
+        usleep(2000000);
         exit(1);
     }
     newNode->data = data;
@@ -223,7 +222,7 @@ void insertAtBeginning(struct Node** head, int data) {
     newNode->next = *head;
     *head = newNode;
     printf("\nNode inserted.\n");
-    usleep(1000000);
+    usleep(2000000);
     printf("\e[1;1H\e[2J");
 }
 
@@ -239,7 +238,7 @@ void insertAtEnd(struct Node** head, int data) {
         temp->next = newNode;
     }
     printf("\nNode inserted.\n");
-    usleep(1000000);
+    usleep(2000000);
     printf("\e[1;1H\e[2J");
 }
 
@@ -260,14 +259,14 @@ void insertAtPosition(struct Node** head, int data, int position) {
         }
         if (temp == NULL) {
             printf("Invalid position. Position exceeds the length of the list.\n");
-            usleep(1000000);
+            usleep(2000000);
             printf("\e[1;1H\e[2J");
             return;
         }
         newNode->next = temp->next;
         temp->next = newNode;
         printf("\nNode inserted.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
     }
 }
@@ -275,7 +274,7 @@ void insertAtPosition(struct Node** head, int data, int position) {
 void deleteFirstElement(struct Node** head, int key, int deleteFirst) {
     if (*head == NULL) {
         printf("\nList is empty. Nothing to delete.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -286,7 +285,7 @@ void deleteFirstElement(struct Node** head, int key, int deleteFirst) {
         *head = temp->next;
         free(temp);
         printf("\nNode deleted.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -296,7 +295,7 @@ void deleteFirstElement(struct Node** head, int key, int deleteFirst) {
     }
     if (temp == NULL) {
         printf("Element %d not found in the list.\n", key);
-        usleep(1000000);
+        usleep(2000000);
         return;
     }
     if (prev == NULL) {
@@ -310,13 +309,13 @@ void deleteFirstElement(struct Node** head, int key, int deleteFirst) {
 void deleteAtPosition(struct Node** head, int position) {
     if (position < 1) {
         printf("Invalid position. Position must be >= 1.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
     if (*head == NULL) {
         printf("List is empty. Nothing to delete.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -325,7 +324,7 @@ void deleteAtPosition(struct Node** head, int position) {
         *head = temp->next;
         free(temp);
         printf("\nNode deleted.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -334,7 +333,7 @@ void deleteAtPosition(struct Node** head, int position) {
     }
     if (temp == NULL || temp->next == NULL) {
         printf("Invalid position. Position exceeds the length of the list.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -342,14 +341,14 @@ void deleteAtPosition(struct Node** head, int position) {
     free(temp->next);
     temp->next = next;
     printf("\nNode deleted.\n");
-    usleep(1000000);
+    usleep(2000000);
     printf("\e[1;1H\e[2J");
 }
 
 void deleteAllElements(struct Node** head) {
     if (*head == NULL) {
         printf("\nList is empty. Nothing to delete.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -362,14 +361,14 @@ void deleteAllElements(struct Node** head) {
     }
     *head = NULL;
     printf("\nAll nodes deleted.\n");
-    usleep(1000000);
+    usleep(2000000);
     printf("\e[1;1H\e[2J");
 }
 
 void deleteLastElement(struct Node** head) {
     if (*head == NULL) {
         printf("\nList is empty. Nothing to delete.\n");
-        usleep(1000000);
+        usleep(2000000);
         printf("\e[1;1H\e[2J");
         return;
     }
@@ -386,7 +385,7 @@ void deleteLastElement(struct Node** head) {
     }
     free(temp);
     printf("\nNode deleted.\n");
-    usleep(1000000);
+    usleep(2000000);
     printf("\e[1;1H\e[2J");
 }
 

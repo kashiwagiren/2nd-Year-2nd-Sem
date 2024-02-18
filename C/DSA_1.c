@@ -1,17 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-// Define structure for a node in the linked list
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to create a new node
+struct Node* createNode(int data);
+void insert(struct Node** head, int data);
+void deleteNode(struct Node** head, int key);
+void display(struct Node* head);
+void search(struct Node* head, int key);
+
+int main() {
+    struct Node* head = NULL;
+    int choice, data, key;
+
+    do {
+        printf("\e[1;1H\e[2J");
+        printf("\nLinked List Operations:\n");
+        printf("1. Insertion\n");
+        printf("2. Deletion\n");
+        printf("3. Traverse\n");
+        printf("4. Search\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        printf("\e[1;1H\e[2J");
+
+        switch (choice) {
+            case 1:
+                printf("Enter the element to insert: ");
+                scanf("%d", &data);
+                insert(&head, data);
+                printf("\e[1;1H\e[2J");
+                break;
+            case 2:
+                printf("Enter the element to delete: ");
+                scanf("%d", &key);
+                deleteNode(&head, key);
+                printf("\e[1;1H\e[2J");
+                break;
+            case 3:
+                display(head);
+                usleep(3000000);
+                break;
+            case 4:
+                printf("Enter the element to search: ");
+                scanf("%d", &key);
+                search(head, key);
+                printf("\e[1;1H\e[2J");
+                break;
+            case 5:
+                printf("\e[1;1H\e[2J");
+                break;
+            default:
+                printf("Invalid choice! Please enter a number between 1 and 5.\n");
+        }
+    } while (choice != 5);
+
+    return 0;
+}
+
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
         printf("Memory allocation failed.\n");
+        printf("\e[1;1H\e[2J");
         exit(1);
     }
     newNode->data = data;
@@ -19,7 +75,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert a new node at the end of the linked list
 void insert(struct Node** head, int data) {
     struct Node* newNode = createNode(data);
     if (*head == NULL) {
@@ -33,7 +88,6 @@ void insert(struct Node** head, int data) {
     }
 }
 
-// Function to delete a node with a given key from the linked list
 void deleteNode(struct Node** head, int key) {
     struct Node* temp = *head;
     struct Node* prev = NULL;
@@ -48,13 +102,14 @@ void deleteNode(struct Node** head, int key) {
     }
     if (temp == NULL) {
         printf("Element %d not found in the list.\n", key);
+        printf("\e[1;1H\e[2J");
+        usleep(1000000);
         return;
     }
     prev->next = temp->next;
     free(temp);
 }
 
-// Function to display the linked list
 void display(struct Node* head) {
     struct Node* temp = head;
     printf("Linked List: ");
@@ -65,7 +120,6 @@ void display(struct Node* head) {
     printf("NULL\n");
 }
 
-// Function to search for a key in the linked list
 void search(struct Node* head, int key) {
     struct Node* temp = head;
     int position = 1;
@@ -74,52 +128,12 @@ void search(struct Node* head, int key) {
         position++;
     }
     if (temp == NULL) {
+        printf("\e[1;1H\e[2J");
         printf("Element %d not found in the list.\n", key);
+        usleep(3000000);
     } else {
+        printf("\e[1;1H\e[2J");
         printf("Element %d found at position %d.\n", key, position);
+        usleep(3000000);
     }
-}
-
-int main() {
-    struct Node* head = NULL;
-    int choice, data, key;
-
-    do {
-        printf("\nLinked List Operations Menu:\n");
-        printf("1. Insert\n");
-        printf("2. Delete\n");
-        printf("3. Display\n");
-        printf("4. Search\n");
-        printf("5. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                printf("Enter the element to insert: ");
-                scanf("%d", &data);
-                insert(&head, data);
-                break;
-            case 2:
-                printf("Enter the element to delete: ");
-                scanf("%d", &key);
-                deleteNode(&head, key);
-                break;
-            case 3:
-                display(head);
-                break;
-            case 4:
-                printf("Enter the element to search: ");
-                scanf("%d", &key);
-                search(head, key);
-                break;
-            case 5:
-                printf("Exiting...\n");
-                break;
-            default:
-                printf("Invalid choice! Please enter a number between 1 and 5.\n");
-        }
-    } while (choice != 5);
-
-    return 0;
 }
