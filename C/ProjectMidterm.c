@@ -29,7 +29,7 @@ void menu() {
 
     do
     {
-        printf("Please choose an operations\n1. Array\n2. Linked List\n3. Stack\n4. Help 5. Exit\nPlease enter your choice of number: ");
+        printf("Please choose an operations\n1. Array\n2. Linked List\n3. Stack\n4. Help\n5. Exit\nPlease enter your choice of number: ");
 
         // Reads user input
         if (scanf("%d", &choice) != 1) {
@@ -77,7 +77,8 @@ void cls() {
 
 // Start Array
 void array() {
-    int size;
+    int size, choice;
+
     cls();
     printf("Enter the size of the array: ");
     if (scanf("%d", &size) != 1 || size < 1) {
@@ -86,7 +87,6 @@ void array() {
         return; // Exits the function if input is invalid
     }
     
-
     int array[size];
     
     for (size_t i = 0; i < size; i++)
@@ -94,7 +94,45 @@ void array() {
         printf("Enter element [%zu]: ", i + 1);
         scanf("%d", &array[i]);
     }
-    
-    printf("Choose");
+
+    while (1) {
+        cls();
+        printf("Please choose an operations\n1. Traverse\n2. Insertion\n3. Deletion\n4. Search\n5. Update\n6. Display\n7. Clear Array and Input New\n8. Back\nPlease enter your choice of number: ");
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1:
+            /* code */
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            for (size_t i = 0; i < size; i++) {
+                array[i] = 0;
+            }
+            printf("Array Cleared.\n");
+            usleep(2e+6);
+            for (size_t i = 0; i < size; i++) {
+                printf("Enter element [%zu]: ", i + 1);
+                scanf("%d", &array[i]);
+            }
+            break;
+        case 8:
+            for (size_t i = 0; i < size; i++) {
+                array[i] = 0;
+            }
+            usleep(1e+6);
+            cls();
+            menu();
+            break;
+        }
+    }
 }
 // End Array
