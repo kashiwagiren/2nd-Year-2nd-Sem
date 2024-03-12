@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include "Array.h"
 #include "SLL.h"
 #include "DLL.h"
 #include "CLL.h"
 #include "Stack.h"
 
-// Prototypes
+// Function Prototypes
 void cls();
 void array();
 void linkedlist();
@@ -35,7 +36,7 @@ void cls() {
 void menu() {
     int choice;
     do {
-        printf("Please choose an operations\n1. Array\n2. Linked List\n3. Stack\n4. Help\n5. Exit\nPlease enter your choice of number: ");
+        printf("Please choose an operations\n1. Array\n2. Linked List\n3. Stack\n4. ?\n5. Exit\nPlease enter your choice of number: ");
         if(scanf("%d", &choice) != 1) {
             cls();
             printf("Invalid input. Please enter a number.\n");
@@ -61,8 +62,12 @@ void menu() {
                 linkedlist();
                 break;
             case 3:
+                cls();
+                stack();
                 break;
             case 4:
+                cls();
+                printf("");
                 break;
             case 5:
                 cls();
@@ -76,9 +81,8 @@ void menu() {
 // Start Linked List Menu
 void linkedlist() {
     int choice;
-
     do {
-        printf("Please choose a Linked List Type\n1. Singly\n2. Doubly\n3. Circular\n4. Help\n5. Back\nPlease enter your choice of number: ");
+        printf("Please choose a Linked List Type\n1. Singly\n2. Doubly\n3. Circular\n4. ?\n5. Back\nPlease enter your choice of number: ");
         if(scanf("%d", &choice) != 1) {
             cls();
             printf("Invalid input. Please enter a number.\n");
@@ -108,6 +112,8 @@ void linkedlist() {
                 cls();
                 break;
             case 4:
+                printf("");
+                cls();
                 break;
             case 5:
                 cls();
