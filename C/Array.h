@@ -14,10 +14,9 @@ void array() {
 
     if(!isInitialized) {
         clearScreenArray();
-        printf("Enter the size of the array: ");
+        printf("\t\t\t\t\t\t\t\t\033[1;35mEnter the size of the array:\033[0m ");
         if(scanf("%d", &size) != 1 || size < 1) {
-            clearScreenArray();
-            printf("Invalid input. The size must be a positive integer or not equal to zero.\n");
+            printf("\t\t\t\t\t\t\033[1;31mInvalid input. The size must be a positive integer or not equal to zero.\033[0m\n");
             usleep(2e+6);
             clearScreenArray();
             return;
@@ -28,7 +27,7 @@ void array() {
     arr = (int*)malloc(size * sizeof(int));
     if(arr == NULL) {
         clearScreenArray();
-        printf("Error: Memory allocation failed.\n");
+        printf("\n\n\n\t\t\t\t\t\t\t\t\033[1;31mError: Memory allocation failed.\033[0m\n");
         usleep(2e+6);
         clearScreenArray();
         exit(1);
@@ -36,7 +35,7 @@ void array() {
     printf("\n");
     if(!hasElements) {
         for(size_t i = 0; i < size; i++) {
-            printf("Enter element [%zu]: ", i);
+            printf("\t\t\t\t\t\t\t\t\033[1;33mEnter element [\033[0m\033[1;32m%zu\033[0m\033[1;33m]\033[0m: ", i);
             scanf("%d", &arr[i]);
         }
         hasElements = 1;
@@ -45,18 +44,31 @@ void array() {
     while(1) {
         clearScreenArray();
         do {
-            printf("Please choose an operations\n1. Traverse\n2. Insertion\n3. Deletion\n4. Search\n5. Update\n6. Display\n7. Clear all Arrays\n8. Back\nPlease enter your choice of number: ");
+            printf("\t\t\t\t\t\t\t\t   \033[1;35mPlease choose an operations\033[0m\n");
+            printf("\033[1;37m");
+            printf("\t\t\t\t\t\t\t\t _________________________________ \n");
+            printf("\t\t\t\t\t\t\t\t/                                 \\\n");
+            printf("\t\t\t\t\t\t\t\t|         Operations Menu:        |\n");
+            printf("\t\t\t\t\t\t\t\t|      Press '1' to Traverse      |\n");
+            printf("\t\t\t\t\t\t\t\t|     Press '2' for Insertion     |\n");
+            printf("\t\t\t\t\t\t\t\t|      Press '3' for Deletion     |\n");
+            printf("\t\t\t\t\t\t\t\t|       Press '4' to Search       |\n");
+            printf("\t\t\t\t\t\t\t\t|       Press '5' to Update       |\n");
+            printf("\t\t\t\t\t\t\t\t|      Press '6' to Display       |\n");
+            printf("\t\t\t\t\t\t\t\t|  Press '7' to Clear all Arrays  |\n");
+            printf("\t\t\t\t\t\t\t\t|      Press '8' to go Back       |\n");
+            printf("\t\t\t\t\t\t\t\t\\_________________________________/\n");
+            printf("\n\t\t\t\t\t\t\t\t");
+            printf("   Enter your choice of number:\033[0m ");
             if(scanf("%d", &choice) != 1) {
-                clearScreenArray();
-                printf("Invalid input. Please enter a number.\n");
+                printf("\033[1;31m\n\t\t\t\t\t\t\t\tInvalid input. Please enter a number.\033[0m\n");
                 usleep(2e+6);
                 clearScreenArray();
                 while(getchar() != '\n');
                 continue;
             }
             if(choice < 1 || choice > 8) {
-                clearScreenArray();
-                printf("Invalid choice. Please choose a number between 1 and 8.\n");
+                printf("\033[1;31m\n\t\t\t\t\t\t\tInvalid choice. Please choose a number between 1 and 8.\033[0m\n");
                 usleep(2e+6);
                 clearScreenArray();
                 continue;
@@ -66,7 +78,7 @@ void array() {
                     // Traverse
                     if(!hasElements || arr == NULL) {
                         clearScreenArray();
-                        printf("Array is empty.\n");
+                        printf("\033[1;31mArray is empty.\033[0m\n");
                         usleep(2e+6);
                         printf("Going back to menu...\n");
                         usleep(2e+6);
@@ -75,15 +87,18 @@ void array() {
                         break;
                     }
                     clearScreenArray();
-                    printf("Array elements:\n\n");
+                    printf("\t\t\t\t\t\t\t\t        Array elements:\n\n");
                     usleep(1e+6);
+                    printf("\033[1;36m");
+                    printf("\t\t\t\t\t\t\t\t _________________________________ \n");
+                    printf("\t\t\t\t\t\t\t\t/                                 \\\n");
                     for(size_t i = 0; i < size; i++) {
-                        printf("Index [%zu] Element [%d]\n", i, arr[i]);
+                        printf("\t\t\t\t\t\t\t\t      Index [%zu] Element [%d]      \n", i, arr[i]);
                         usleep(1e+6);
                     }
-                    printf("\n");
+                    printf("\t\t\t\t\t\t\t\t\\_________________________________/\033[0m\n");
                     usleep(2e+6);
-                    printf("Press any key to go back...\n");
+                    printf("\n\n    \t\t\t\t\t\t\t\t    Press any key to go back...");
                     getchar();
                     char input = getchar();
                     clearScreenArray();
@@ -102,8 +117,8 @@ void array() {
                     }
                     int insertChoice;
                     clearScreenArray();
-                    printf("Please choose insertion type:\n1. Beginning\n2. End\n3. At Index\n");
-                    printf("Enter your choice: ");
+                    printf("\t\t\t\t\t\t\t\tPlease choose insertion type:\n\t\t\t\t\t\t\t\t1. Beginning\n\t\t\t\t\t\t\t\t2. End\n\t\t\t\t\t\t\t\t3. At Index\n");
+                    printf("\t\t\t\t\t\t\t\tEnter your choice: ");
                     if(scanf("%d", &insertChoice) != 1 || (insertChoice < 1 || insertChoice > 3)) {
                         clearScreenArray();
                         printf("Invalid choice. Please enter a valid option (1, 2, or 3).\n");
