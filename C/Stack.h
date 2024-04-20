@@ -24,7 +24,15 @@ void stack() {
     int select;
     clearScreenStack();
     do {
-        printf("Please choose an operations\n1. Array\n2. Linked List\n3. Back\nEnter your choice: ");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t    \033[1;35mPlease choose an operations\033[0m\033[1;34m\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t _________________________________ \n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t/                                 \\\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t|        Operations Menu:         |\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t|      Press '1' for Array        |\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t|    Press '2' for Linked List    |\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t|     Press '3' to go Back        |\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\\_________________________________/\n");
+        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPlease enter your choice of number:\033[0m ");
         if(scanf("%d", &select) != 1) {
             clearScreenStack();
             printf("Invalid input. Please enter a number.\n");
@@ -72,7 +80,7 @@ void arrayStack() {
     printf("Stack operations using array\n");
     do {
         clearScreenStack();
-        printf("Chose one from the below options...\n\n1. Push\n2. Pop\n3. Show\n4. Back\n");
+        printf("Chose one from the below options...\n\n1. Push\n2. Pop\n3. Peek\n4. Back\n");
         printf("Enter your choice: ");
         if(scanf("%d", &choiceArrayStack) != 1) {
             clearScreenStack();
