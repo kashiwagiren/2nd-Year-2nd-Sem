@@ -20,8 +20,14 @@ void array() {
             usleep(2e+6);
             clearScreenArray();
             return;
+        } else if(size > 10) {
+            printf("\t\t\t\t\t\t\t\t\t\033[1;31mSize limit exceeded!\033[0m\n");
+            usleep(2e+6);
+            clearScreenArray();
+            return;
+        } else {
+            isInitialized = 1;
         }
-        isInitialized = 1;
     }
 
     arr = (int*)malloc(size * sizeof(int));
@@ -77,17 +83,16 @@ void array() {
                 case 1:
                     // Traverse
                     if(!hasElements || arr == NULL) {
-                        clearScreenArray();
-                        printf("\033[1;31mArray is empty.\033[0m\n");
+                        printf("\033[1;31m\n\t\t\t\t\t\t\t\t\t  Array is empty.\033[0m\n");
                         usleep(2e+6);
-                        printf("Going back to menu...\n");
+                        printf("\n\t\t\t\t\t\t\t\t\tGoing back to menu...");
                         usleep(2e+6);
                         clearScreenArray();
                         menu();
                         break;
                     }
                     clearScreenArray();
-                    printf("\t\t\t\t\t\t\t\t        Array elements:\n\n");
+                    printf("\t\t\t\t\t\t\t\t          \033[1;35mArray elements:\033[0m\n\n");
                     usleep(1e+6);
                     printf("\033[1;36m");
                     printf("\t\t\t\t\t\t\t\t _________________________________ \n");
@@ -98,7 +103,7 @@ void array() {
                     }
                     printf("\t\t\t\t\t\t\t\t\\_________________________________/\033[0m\n");
                     usleep(2e+6);
-                    printf("\n\n    \t\t\t\t\t\t\t\t    Press any key to go back...");
+                    printf("\n\n    \t\t\t\t\t\t\t\t    \033[1;31mPress any key to go back...\033[0m");
                     getchar();
                     char input = getchar();
                     clearScreenArray();
@@ -106,10 +111,9 @@ void array() {
                 case 2:
                     // Insertion
                     if(!isInitialized) {
-                        clearScreenArray();
-                        printf("Array is not initialized. Please initialize the array first.\n");
+                        printf("\033[1;31m\n\t\t\t\t\t\t\tArray is not initialized. Please initialize the array first.\033[0m\n");
                         usleep(2e+6);
-                        printf("Going back to menu...\n");
+                        printf("\n\t\t\t\t\t\t\t\t\tGoing back to menu...");
                         usleep(2e+6);
                         clearScreenArray();
                         menu();
@@ -120,7 +124,6 @@ void array() {
                     printf("\t\t\t\t\t\t\t\tPlease choose insertion type:\n\t\t\t\t\t\t\t\t1. Beginning\n\t\t\t\t\t\t\t\t2. End\n\t\t\t\t\t\t\t\t3. At Index\n");
                     printf("\t\t\t\t\t\t\t\tEnter your choice: ");
                     if(scanf("%d", &insertChoice) != 1 || (insertChoice < 1 || insertChoice > 3)) {
-                        clearScreenArray();
                         printf("Invalid choice. Please enter a valid option (1, 2, or 3).\n");
                         usleep(2e+6);
                         clearScreenArray();
@@ -399,8 +402,7 @@ void array() {
                     break;
                 case 8:
                     // Back
-                    clearScreenArray();
-                    printf("Note: if you go back, it will reset your data and will not be preserved.\n[y / n]: ");
+                    printf("\t\t\tNote: if you go back, it will reset your data and will not be preserved.\n[y / n]: ");
                     char option;
                     while(1) {
                         scanf(" %c", &option);
